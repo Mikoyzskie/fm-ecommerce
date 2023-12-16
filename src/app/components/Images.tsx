@@ -16,8 +16,23 @@ export default function Images() {
                 alt="Product 1"
                 height={445}
                 width={445}
-                className='rounded-2xl max-w-md max-h-[448px] h-full w-full mb-8'
+                className='hidden md:block md:rounded-2xl md:mt-5 lg:mt-0 max-w-screen-2xl md:max-w-md lg:max-h-[448px] h-full w-screen md:w-full mb-0 lg:mb-8'
             />
+            <div className="block md:hidden relative">
+                <button className="flex items-center justify-center h-10 w-10 absolute top-1/2 -translate-y-1/2 left-10 bg-white rounded-full">
+                    <svg width="12" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M11 1 3 9l8 8" stroke="#1D2026" strokeWidth="3" fill="none" /></svg>
+                </button>
+                <Image
+                    src={`/image-product-${mainImage}.jpg`}
+                    alt="Product 1"
+                    height={445}
+                    width={445}
+                    className=' md:rounded-2xl md:mt-5 lg:mt-0 max-w-screen-2xl md:max-w-md lg:max-h-[448px] h-full w-screen md:w-full mb-0 lg:mb-8'
+                />
+                <button className="flex items-center justify-center h-10 w-10 absolute top-1/2 -translate-y-1/2 right-10 bg-white rounded-full">
+                    <svg width="13" height="18" xmlns="http://www.w3.org/2000/svg"><path d="m2 1 8 8-8 8" stroke="#1D2026" strokeWidth="3" fill="none" /></svg>
+                </button>
+            </div>
             <div className='hidden lg:flex justify-between'>
                 {
                     thumbs.map((thumb) => (

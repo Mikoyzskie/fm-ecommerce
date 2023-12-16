@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={kumb.className}>
         <Header />
-        <main className='max-w-6xl mx-auto px-12 py-20'>
+        <main className='max-w-6xl mx-auto lg:px-12 lg:py-20'>
           {children}
         </main>
       </body>
