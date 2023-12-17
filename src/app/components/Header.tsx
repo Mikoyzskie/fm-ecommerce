@@ -4,6 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import styles from "@/app/styles/header.module.css"
 import { useState } from "react"
+import { useGlobalContext } from "../lib/Provider"
 import Cart from "./Cart"
 
 const links = ["Collections", "Men", "Women", "About", "Contact"]
@@ -11,6 +12,7 @@ const links = ["Collections", "Men", "Women", "About", "Contact"]
 export default function Header() {
 
     const [cart, showCart] = useState(true)
+    const { setSideMenu } = useGlobalContext()
 
     function handleCart() {
         showCart(!cart)
@@ -20,9 +22,9 @@ export default function Header() {
         <header className={`${styles.headerMain} flex items-center justify-between max-w-6xl mx-auto border-b px-5 relative`}>
             <div className="flex items-center gap-14">
                 <div className="flex items-center gap-4">
-                    <div className="block lg:hidden">
+                    <button className="block lg:hidden" onClick={() => { setSideMenu(true) }}>
                         <svg width="16" height="15" xmlns="http://www.w3.org/2000/svg"><path d="M16 12v3H0v-3h16Zm0-6v3H0V6h16Zm0-6v3H0V0h16Z" fill="#69707D" fillRule="evenodd" /></svg>
-                    </div>
+                    </button>
                     <Link href={"/"} className="text-4xl font-bold py-6">
                         <Image
                             alt="Sneakers logo"

@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { Kumbh_Sans } from 'next/font/google'
 import './globals.css'
 import Header from './components/Header'
+import SideMenu from './components/SideMenu'
+import { GlobalContextProvider } from './lib/Provider'
 
 const kumb = Kumbh_Sans({ weight: ['400', '700'], subsets: ["latin"] })
 
@@ -16,13 +18,18 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
+
     <html lang="en">
-      <body className={kumb.className}>
-        <Header />
-        <main className='max-w-6xl mx-auto lg:px-12 lg:py-20'>
-          {children}
-        </main>
-      </body>
+      <GlobalContextProvider>
+        <body className={kumb.className}>
+          <Header />
+          <SideMenu />
+          <main className='max-w-6xl mx-auto lg:px-12 lg:py-20'>
+            {children}
+          </main>
+        </body>
+      </GlobalContextProvider>
     </html>
+
   )
 }

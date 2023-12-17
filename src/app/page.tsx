@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Images from "@/app/components/Images"
 import Buttons from './components/Buttons'
 

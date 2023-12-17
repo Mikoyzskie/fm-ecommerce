@@ -1,0 +1,19 @@
+.sidelink {
+  position: relative;
+  width: fit-content;
+}
+
+.sidelink:after {
+  position: absolute;
+  bottom: 0;
+  display: block;
+  content: "";
+  height: 1px;
+  width: 0;
+  background-color: #ff7d1a;
+  transition: all 300ms ease-in-out;
+}
+
+.sidelink:hover::after {
+  width: 100%;
+}
