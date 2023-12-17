@@ -3,11 +3,27 @@
 import Image from "next/image"
 import { useState } from "react"
 
-const thumbs = ["1", "2", "3", "4"]
+const thumbs = [1, 2, 3, 4]
 
 export default function Images() {
 
-    const [mainImage, setMainImage] = useState("1")
+    const [mainImage, setMainImage] = useState(1)
+
+    function handleImageNext() {
+        if (mainImage > 3) {
+            setMainImage(4)
+        } else {
+            setMainImage(mainImage + 1)
+        }
+    }
+
+    function handleImagePrev() {
+        if (mainImage < 2) {
+            setMainImage(1)
+        } else {
+            setMainImage(mainImage - 1)
+        }
+    }
 
     return (
         <div>
@@ -19,8 +35,8 @@ export default function Images() {
                 className='hidden md:block md:rounded-2xl md:mt-5 lg:mt-0 max-w-screen-2xl md:max-w-md lg:max-h-[448px] h-full w-screen md:w-full mb-0 lg:mb-8'
             />
             <div className="block md:hidden relative">
-                <button className="flex items-center justify-center h-10 w-10 absolute top-1/2 -translate-y-1/2 left-10 bg-white rounded-full">
-                    <svg width="12" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M11 1 3 9l8 8" stroke="#1D2026" strokeWidth="3" fill="none" /></svg>
+                <button className="flex items-center justify-center h-10 w-10 absolute top-1/2 -translate-y-1/2 left-10 bg-white rounded-full group" onClick={handleImagePrev}>
+                    <svg width="12" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M11 1 3 9l8 8" stroke="#1D2026" strokeWidth="3" fill="none" className="fill-white group-active:stroke-[#ff7d1a]" /></svg>
                 </button>
                 <Image
                     src={`/image-product-${mainImage}.jpg`}
@@ -29,11 +45,11 @@ export default function Images() {
                     width={445}
                     className=' md:rounded-2xl md:mt-5 lg:mt-0 max-w-screen-2xl md:max-w-md lg:max-h-[448px] h-full w-screen md:w-full mb-0 lg:mb-8'
                 />
-                <button className="flex items-center justify-center h-10 w-10 absolute top-1/2 -translate-y-1/2 right-10 bg-white rounded-full">
-                    <svg width="13" height="18" xmlns="http://www.w3.org/2000/svg"><path d="m2 1 8 8-8 8" stroke="#1D2026" strokeWidth="3" fill="none" /></svg>
+                <button className="flex items-center justify-center h-10 w-10 absolute top-1/2 -translate-y-1/2 right-10 bg-white rounded-full group" onClick={handleImageNext}>
+                    <svg width="13" height="18" xmlns="http://www.w3.org/2000/svg"><path d="m2 1 8 8-8 8" stroke="#1D2026" strokeWidth="3" fill="none" className="fill-white group-active:stroke-[#ff7d1a]" /></svg>
                 </button>
             </div>
-            <div className='hidden lg:flex justify-between'>
+            <div className='hidden md:flex justify-between md:mt-5 lg:mt-0'>
                 {
                     thumbs.map((thumb) => (
                         <Image
