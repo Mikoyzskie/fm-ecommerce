@@ -1,5 +1,6 @@
 "use client"
 
+import clsx from "clsx"
 import Image from "next/image"
 import { useState } from "react"
 
@@ -56,9 +57,11 @@ export default function Images() {
                             key={thumb}
                             src={`/image-product-${thumb}-thumbnail.jpg`}
                             alt="Product 1"
-                            height={89}
-                            width={90}
-                            className='rounded-xl max-w-[89px] max-h-[89px] h-full w-full hover:cursor-pointer'
+                            height={99}
+                            width={100}
+                            className={clsx("rounded-xl max-w-[89px] max-h-[89px] h-full w-full hover:cursor-pointer hover:opacity-60",
+                                thumb === mainImage ? "opacity-50 border-2 border-[#ff7d1a]" : ""
+                            )}
                             onClick={() => { setMainImage(thumb) }}
                         />
                     ))

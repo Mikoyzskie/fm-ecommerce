@@ -6,6 +6,7 @@ import styles from "@/app/styles/header.module.css"
 import { useState } from "react"
 import { useGlobalContext } from "../lib/Provider"
 import Cart from "./Cart"
+import clsx from "clsx"
 
 const links = ["Collections", "Men", "Women", "About", "Contact"]
 
@@ -17,6 +18,8 @@ export default function Header() {
     function handleCart() {
         showCart(!cart)
     }
+
+    const cartCount = 3
 
     return (
         <header className={`${styles.headerMain} flex items-center justify-between max-w-6xl mx-auto border-b px-5 relative`}>
@@ -47,7 +50,9 @@ export default function Header() {
                 </div>
             </div>
             <div className="flex items-center gap-5 lg:gap-11">
-                <div className="relative after:content-['3'] after:bg-[#ff7d1a] after:text-white after:-top-2 after:left-2 after:absolute after:text-xs after:px-2 after:rounded-full">
+                <div className={clsx("relative after:content-['3'] after:bg-[#ff7d1a] after:text-white after:-top-2 after:left-2 after:absolute after:text-xs after:px-2 after:rounded-full",
+                    cartCount === 3 ? "after:hidden" : "after:block"
+                )}>
                     <Image
                         src={"/icon-cart.svg"}
                         alt="Cart Icon"
