@@ -16,13 +16,13 @@ interface IProvider {
 const GlobalContext = createContext<IProvider>({
   sideMenu: false,
   setSideMenu: () => { },
-  cartCount: 3,
+  cartCount: 0,
   setCartCount: () => { }
 })
 
 export const GlobalContextProvider = ({ children }: Props) => {
   const [sideMenu, setSideMenu] = useState<boolean>(false);
-  const [cartCount, setCartCount] = useState<number>(3);
+  const [cartCount, setCartCount] = useState<number>(0);
 
   return (
     <GlobalContext.Provider value={{ sideMenu, setSideMenu, cartCount, setCartCount }}>
